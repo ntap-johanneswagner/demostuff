@@ -37,7 +37,13 @@ kubectl create namespace pvctest
 kubectl apply -f firstpvc.yaml -n pvctest
 kubectl apply -f secondpvc.yaml -n pvctest
 ```
+```console
+kubectl get pvc -n pvctest
+```
 
+```console
+kubectl describe pvc secondpvc -n pvctest
+```
 
 
 # 03 pacman
@@ -132,7 +138,7 @@ Have some fun, create some highscore, we will need that in a later lab.
 ```console
 cd /home/user/demostuff/04snapshot
 ```
-___
+
 CSI Snapshots have been promoted GA with Kubernetes 1.20.  
 While snapshots can be used for many use cases, we will explore 2 different ones, which share the same initial process:
 
@@ -204,7 +210,7 @@ The last line will provide you an output of our example environment. There shoul
 Before we create a snapshot, let's write some data into our volume.  
 
 ```console
-kubectl exec -n busybox $(kubectl get pod -n busybox -o name) -- sh -c 'echo "NetApp Kompakt Live Lab 2023 is fun. I will never use anything other than Astra Trident for persistent storage in K8s" > /data/test.txt'
+kubectl exec -n busybox $(kubectl get pod -n busybox -o name) -- sh -c 'echo "There is persistent data in k8s" > /data/test.txt'
 ```
 
 This creates the file test.txt and writes "NetApp Kompakt Live Lab 2023 is fun. I will never use anything other than Astra Trident for persistent storage in K8s" into it. You can verify the file contents:
