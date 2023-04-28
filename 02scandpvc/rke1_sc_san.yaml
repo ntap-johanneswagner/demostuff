@@ -9,4 +9,4 @@ parameters:
   fsType: "ext4"
 mountOptions:
    - discard
-allowVolumeExpansion: truer
+allowVolumeExpansion: true
