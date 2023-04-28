@@ -5,6 +5,11 @@ cd demostuff/01prework
 bash prework sh
 ```
 
+alias:
+rke1 => change kubeconfig to rke1
+rke2 => change kubeconfig to rke2
+active => which kubeconfig is active?
+
 # 02 sc and pvcs
 
 san eco and san sc are in there
@@ -12,10 +17,33 @@ also two pvcs
 firstpvc.yaml will create a pvc on san-eco  
 secondpvc.yaml trys to create rwx on san-eco which will fail. change sc or access mdoe to fix it - right sc is "sc-nas-svm1"
 
+```console
+cd /home/user/demostuff/02scandpvc
+```
+
+```console
+kubectl apply -f rke1_sc_saneco.yaml
+```
+
+```console
+kubectl apply -f rke1_sc_san.yaml
+```
+
+```console
+kubectl create namespace pvctest
+```
+
+```console
+kubectl apply -f firstpvc.yaml -n pvctest
+kubectl apply -f secondpvc.yaml -n pvctest
+```
+
+
+
 # 03 pacman
 
 ```console
-cd /home/user/demostuff/04pacman
+cd /home/user/demostuff/03pacman
 ```
 
 this is a simple app with db and some fun game to demonstrate acc later
